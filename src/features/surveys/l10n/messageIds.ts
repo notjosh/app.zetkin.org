@@ -230,6 +230,8 @@ export default makeMessages('feat.surveys', {
     description: m(
       'The person you are about to link does not have an email address while the survey response does. Would you like to add it the person?'
     ),
+    new: m('New'),
+    old: m('Old'),
     title: m('Add email address'),
   },
   surveyDialogDifferentEmail: {

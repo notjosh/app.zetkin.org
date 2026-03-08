@@ -54,17 +54,25 @@ const SurveyLinkDialog = ({
             </Typography>
           </Box>
 
-          <Box alignItems="center" display="flex" mb={2}>
-            {email}
-            <Box alignItems="center" display="flex" ml={2} mr={2}>
-              <ArrowForward
-                color="secondary"
-                sx={{
-                  opacity: '50%',
-                }}
-              />
+          <Box
+            sx={{
+              alignItems: 'center',
+              display: 'flex',
+              flexWrap: 'wrap',
+              gap: 2,
+              marginBlock: 2,
+            }}
+          >
+            <Box>
+              <Box>{messages.surveyDialog.new().toLocaleUpperCase()}</Box>
+              <Box sx={{ fontWeight: 'bold' }}>{email}</Box>
             </Box>
-            {person.email}
+            <Box>
+              <Box>{messages.surveyDialog.old().toLocaleUpperCase()}</Box>
+              <Box sx={{ fontWeight: 'bold', textDecoration: 'line-through' }}>
+                {person.email}
+              </Box>
+            </Box>
           </Box>
           {messages.surveyDialogDifferentEmail.description()}
         </DialogContent>
