@@ -19,7 +19,7 @@ export const ActivistPortalEventMap: FC<{
   setLocationFilter: (geojsonToFilterBy: GeoJSON.Feature[]) => void;
 }> = ({ events, locationFilter, setLocationFilter }) => {
   const [map, setMap] = useState<MapType | null>(null);
-  const defaultFitBoundOptions = { padding: 80 };
+  const defaultFitBoundOptions = useMemo(() => ({ padding: 80 }), []);
 
   const onMarkerClick = useCallback(
     (geojsonFeatures: GeoJSON.Feature[]) => {
@@ -47,7 +47,7 @@ export const ActivistPortalEventMap: FC<{
 
       setLocationFilter(geojsonFeatures);
     },
-    [map, setLocationFilter]
+    [defaultFitBoundOptions, map, setLocationFilter]
   );
 
   useMapMarkerClick(map, onMarkerClick);
